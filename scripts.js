@@ -15,12 +15,9 @@ $(document).ready(function(){
 				method:"GET"
 				})
 				.done(function(res){
-					$("#weather-info").append("<p>" + res.weather[0].main + "</p>");
 					temp = res.main.temp;
-
-
-					$("#weather-info").append("<p>" + temp + "</p>");
-					$("#weather-info").append("<p>" + location.city + ", " + location.country+"</p>");
+		var disptemp = (this.checked ? ((9.0/5.0)*(temp-273)+32) : (temp-273)).toFixed(2);
+					$("#weather-info").html("<p>" + res.weather[0].main + "</p>"+"<p id=\"temp\">" + disptemp + "</p>"+"<p>" + location.city + ", " + location.country+"</p>");
 					console.log("WORKS");
 				})
 				.fail(function(){
@@ -30,6 +27,12 @@ $(document).ready(function(){
 		.fail(function(){
 			alert("Couldn't obtain user location");
 		});
+	
+	$("#switch > :checkbox").change(function()
+	{
+		var disptemp = (this.checked ? ((9.0/5.0)*(temp-273)+32) : (temp-273)).toFixed(2);
+		$("#temp").html(disptemp);
+	});
 	
 	
 });
