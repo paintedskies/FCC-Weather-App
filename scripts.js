@@ -4,7 +4,8 @@ $(document).ready(function(){
 	var APIKEY = "17e119976e3b2664d8c23d0e04e1cb23";
 	$.ajax({
 		url:"http://ip-api.com/json",
-		method:"GET"
+		method:"GET",
+		dataType:"jsonp"
 	})
 	.done(function(location){
 
@@ -12,7 +13,8 @@ $(document).ready(function(){
 		console.log(location);
 		$.ajax({
 			url:"http://api.openweathermap.org/data/2.5/weather?lat="+location.lat+"&lon="+location.lon+"&APPID="+APIKEY,
-			method:"GET"
+			method:"GET",
+			dataType:"jsonp"
 		})
 		.done(function(res){
 			console.log(res);
