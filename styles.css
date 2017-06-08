@@ -10,7 +10,7 @@ h1{
 	transition:all ease-in 0.4s
 }
 img{
-	margin-top:20px;
+	width:80px;
 }
 .wrapper{
 	width:40%;
@@ -24,7 +24,7 @@ img{
 	position:absolute;
 	transform:translate(-40%, -50%);
 }
-.wrapper #weather-info p:nth-child(3){
+.wrapper #weather-info p:nth-child(2){
 	font-size:28px;
 }
 #toggle span:nth-child(1){
